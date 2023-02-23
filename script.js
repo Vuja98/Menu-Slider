@@ -1,4 +1,6 @@
 "use strict";
+
+// Responsive menu
 const mobileMenu = () => {
   let menu = document.querySelector(".header ul");
   let btn = document.querySelector(".header button");
@@ -10,4 +12,36 @@ const mobileMenu = () => {
     menu.style.display = "none";
     btn.innerText = "MENU";
   }
+};
+
+// Slider
+const rightBtn = document.querySelector("#right-btn");
+const leftBtn = document.querySelector("#left-btn");
+const images = document.querySelectorAll(".slider-images img");
+
+let imgNum = 0;
+// Go to next slide
+const nextSlide = () => {
+  displayNone();
+  imgNum++;
+  if (imgNum === images.length) imgNum = 0;
+  images[imgNum].style.display = "block";
+};
+// Go to previous slide
+const prevSlide = () => {
+  displayNone();
+  imgNum--;
+  if (imgNum === -1) imgNum = images.length - 1;
+  images[imgNum].style.display = "block";
+};
+
+// Event listeners for slider
+rightBtn.addEventListener("click", nextSlide);
+leftBtn.addEventListener("click", prevSlide);
+
+// Hides all images
+const displayNone = () => {
+  images.forEach((img) => {
+    img.style.display = "none";
+  });
 };
