@@ -45,3 +45,20 @@ const displayNone = () => {
     img.style.display = "none";
   });
 };
+
+// Portfolio
+const portfolioSort = (button) => {
+  const category = button.getAttribute("data-category");
+  const portfolioItems = document.querySelectorAll(".portfolio-single-item");
+  portfolioItems.forEach((item) => (item.style.display = "none"));
+
+  if (category === "sve") {
+    portfolioItems.forEach((item) => (item.style.display = "block"));
+  }
+
+  portfolioItems.forEach((item) => {
+    if (item.getAttribute("data-category").includes(category)) {
+      item.style.display = "block";
+    }
+  });
+};
