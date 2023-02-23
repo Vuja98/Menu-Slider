@@ -47,6 +47,8 @@ const displayNone = () => {
 };
 
 // Portfolio
+const buttons = document.querySelectorAll(".portfolio-categories button");
+console.log(buttons);
 const portfolioSort = (button) => {
   const category = button.getAttribute("data-category");
   const portfolioItems = document.querySelectorAll(".portfolio-single-item");
@@ -62,3 +64,25 @@ const portfolioSort = (button) => {
     }
   });
 };
+
+// Modal
+
+const popupModal = document.querySelector(".popup-modal");
+const overlay = document.querySelector(".overlay");
+const modalBtn = document.querySelector(".modal-section button");
+const closeBtn = document.querySelector("#closeModal");
+// Open modal and show overlay
+const openModal = () => {
+  popupModal.style.display = "block";
+  overlay.style.display = "block";
+};
+// Close modal and hide overaly
+const closeModal = () => {
+  popupModal.style.display = "none";
+  overlay.style.display = "none";
+};
+
+// Modal event listeners
+modalBtn.addEventListener("click", openModal);
+closeBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
